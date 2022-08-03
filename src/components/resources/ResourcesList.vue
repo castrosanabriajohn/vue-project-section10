@@ -3,6 +3,7 @@
     <resource
       v-for="sr in resourcesList"
       :key="sr.id"
+      :id="sr.id"
       :title="sr.title"
       :description="sr.description"
       :link="sr.link"
