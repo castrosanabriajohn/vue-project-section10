@@ -1,9 +1,11 @@
 <template>
+  <the-header title="RememberMe"></the-header>
   <resources-list :resourcesList="storedResources"> </resources-list>
 </template>
 
 <script>
 import ResourcesList from './components/resources/ResourcesList.vue';
+import TheHeader from './components/layout/TheHeader.vue';
 export default {
   data() {
     return {
@@ -23,7 +25,7 @@ export default {
       ],
     };
   },
-  components: { ResourcesList },
+  components: { ResourcesList, TheHeader },
 };
 </script>
 
