@@ -13,7 +13,7 @@
 <script>
 import Resource from './Resource.vue';
 export default {
-  props: ['resourcesList'],
+  inject: ['resourcesList'],
   components: { Resource },
 };
 </script>
