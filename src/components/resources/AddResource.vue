@@ -1,4 +1,20 @@
 <template>
+  <base-dialog
+    v-if="invalidInput"
+    @close="dismissError"
+    title="Input is not valid"
+  >
+    <template #default>
+      <p>Unfortunately, at least one input field is invalid.</p>
+      <p>
+        Please check all of the input fields and make sure you entered at least
+        one character into each input field.
+      </p>
+    </template>
+    <template #actions>
+      <base-button @click="dismissError">Ok</base-button>
+    </template>
+  </base-dialog>
   <base-card>
     <form @submit.prevent="handleSubmit">
       <div class="form-control">
@@ -34,8 +50,24 @@ export default {
       const inputTitle = this.$refs.titleInput.value;
       const inputDescription = this.$refs.descriptionInput.value;
       const inputLink = this.$refs.linkInput.value;
+      if (
+        inputTitle.trim() === '' ||
+        inputDescription.trim() === '' ||
+        inputLink.trim() === ''
+      ) {
+        this.invalidInput = true;
+        return;
+      }
       this.addResource(inputTitle, inputDescription, inputLink);
     },
+    dismissError() {
+      this.invalidInput = false;
+    },
+  },
+  data() {
+    return {
+      invalidInput: false,
+    };
   },
 };
 </script>
