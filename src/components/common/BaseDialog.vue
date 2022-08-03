@@ -10,8 +10,9 @@
       <slot></slot>
     </section>
     <menu>
-      <base-button @click="$emit('close')"></base-button>
-      <slot name="actions"></slot>
+      <slot name="actions">
+        <base-button @click="$emit('close')"></base-button>
+      </slot>
     </menu>
   </dialog>
 </template>

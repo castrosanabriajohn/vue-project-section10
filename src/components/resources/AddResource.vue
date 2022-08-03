@@ -12,7 +12,7 @@
       </p>
     </template>
     <template #actions>
-      <base-button @click="dismissError">Ok</base-button>
+      <base-button @click="dismissError">Confirm</base-button>
     </template>
   </base-dialog>
   <base-card>
